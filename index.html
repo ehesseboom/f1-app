@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+      integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Formula 1 App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="error-message">
+        <p>Error: Could not fetch data.</p>
+      </div>
+
+      <main id="page-current-gp" class="page active">
+        <!-- Name of current/upcoming Grand Prix -->
+        <h1 id="race-name"></h1>
+
+        <!-- Schedule date & time of each session -->
+        <section class="grid">
+          <article id="fp1">
+            <div class="date">
+              <p id="fp1-month" class="month"></p>
+              <p id="fp1-day" class="day"></p>
+            </div>
+            <div>
+              <p class="session">FP1</p>
+              <p id="fp1-time" class="time"></p>
+            </div>
+          </article>
+
+          <article id="fp2">
+            <div class="date">
+              <p id="fp2-month" class="month"></p>
+              <p id="fp2-day" class="day"></p>
+            </div>
+            <div>
+              <p class="session">FP2</p>
+              <p id="fp2-time" class="time"></p>
+            </div>
+          </article>
+
+          <article id="sprQ">
+            <div class="date">
+              <p id="sprQ-month" class="month"></p>
+              <p id="sprQ-day" class="day"></p>
+            </div>
+            <div>
+              <p class="session">Sprint Qualification</p>
+              <p id="sprQ-time" class="time"></p>
+            </div>
+          </article>
+
+          <article id="fp3">
+            <div class="date">
+              <p id="fp3-month" class="month"></p>
+              <p id="fp3-day" class="day"></p>
+            </div>
+            <div>
+              <p class="session">FP3</p>
+              <p id="fp3-time" class="time"></p>
+            </div>
+          </article>
+
+          <article id="sprint">
+            <div class="date">
+              <p id="sprint-month" class="month"></p>
+              <p id="sprint-day" class="day"></p>
+            </div>
+            <div>
+              <p class="session">Sprint Race</p>
+              <p id="sprint-time" class="time"></p>
+            </div>
+          </article>
+
+          <article id="qualy">
+            <div class="date">
+              <p id="qualy-month" class="month"></p>
+              <p id="qualy-day" class="day"></p>
+            </div>
+            <div>
+              <p class="session">Qualification</p>
+              <p id="qualy-time" class="time"></p>
+            </div>
+          </article>
+
+          <article id="race">
+            <div class="date">
+              <p id="race-month" class="month"></p>
+              <p id="race-day" class="day"></p>
+            </div>
+            <div>
+              <p class="session">Race</p>
+              <p id="race-time" class="time"></p>
+            </div>
+          </article>
+        </section>
+
+        <!-- Sprite image -->
+        <img
+          id="img-ferrari-side"
+          src="assets/images/ferrari-side.png"
+          alt="pixel art ferrari side"
+        />
+
+        <!-- Section about the lap record -->
+        <section class="lap-record">
+          <div class="wrapper-title">
+            <p class="title">Lap Record</p>
+            <p id="circuit-name">Circuit</p>
+          </div>
+          <div class="lap-record-stats">
+            <div>
+              <p>Time</p>
+              <p id="lap-record-time"></p>
+            </div>
+            <div>
+              <p>Driver</p>
+              <p id="lap-record-driver"></p>
+            </div>
+            <div>
+              <p>Year</p>
+              <p id="lap-record-year"></p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <section id="page-standings" class="page">
+        <div class="wrapper-standings-title">
+          <p id="page-standings-title">
+            F1 <span id="title-year"></span> Season Standings
+          </p>
+          <div class="title-driv-con">
+            <p id="drivers-standings-title" class="title-stand active">
+              Driver's Championship
+            </p>
+            <p id="constructors-standings-title" class="title-stand">
+              Constructor's Championship
+            </p>
+          </div>
+        </div>
+
+        <div class="wrapper-standings" id="swipe-field">
+          <div id="drivers-standings" class="standings active">
+            <div class="driver-card">
+              <span class="position"></span>
+              <div class="wrapper-name">
+                <span class="first-name"></span>
+                <span class="last-name"></span>
+              </div>
+              <span class="team"></span>
+              <span class="points"></span>
+            </div>
+          </div>
+
+          <div id="constructors-standings" class="standings">
+            <div class="constructor-card">
+              <div class="constructor-card"></div>
+              <span class="position"></span>
+              <span class="team"></span>
+              <span class="points"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="wrapper-indicators">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+        </div>
+
+        <img
+          id="img-mercedes-side"
+          src="assets/images/red-bull-side.png"
+          alt="pixel art mercedes side"
+        />
+      </section>
+
+      <!-- Footer with the button to swap pages -->
+      <footer>
+        <div class="wrapper-btn-page">
+          <button id="btn-standings" class="btn-page active">
+            <svg
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 6H4v2h2V6zm14 0H8v2h12V6zM4 11h2v2H4v-2zm16 0H8v2h12v-2zM4 16h2v2H4v-2zm16 0H8v2h12v-2z"
+                fill="currentColor"
+              />
+            </svg>
+            Standings
+          </button>
+
+          <button id="btn-current-gp" class="btn-page">
+            <svg
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 3H5v2H3v14h2v2h14v-2h2V5h-2V3zm0 2v14H5V5h14zm-8 2h2v6h4v2h-6V7z"
+                fill="currentColor"
+              />
+            </svg>
+            Current GP
+          </button>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

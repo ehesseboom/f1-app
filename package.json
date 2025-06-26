@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "dayjs": "^1.11.13",
+    "pixelarticons": "^1.8.0"
+  },
+  "type": "module"
+}
