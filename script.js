@@ -15,9 +15,6 @@ const errorMessage = document.getElementById("error-message");
 
 const driversStandings = document.getElementById("drivers-standings");
 const constructorsStandings = document.getElementById("constructors-standings");
-// const driversStandingsTitle = document.getElementById(
-//   "drivers-standings-title"
-// );
 
 async function getData() {
   try {
@@ -200,11 +197,11 @@ swipeField.addEventListener("touchstart", (event) => {
 swipeField.addEventListener("touchend", (event) => {
   endX = event.changedTouches[0].clientX;
 
-  if (endX - startX > 150 && currentView === "constructors") {
+  if (endX - startX > 50 && currentView === "constructors") {
     // shows drivers
     currentView = "drivers";
     showStandings(currentView);
-  } else if (endX - startX < -150 && currentView === "drivers") {
+  } else if (endX - startX < -50 && currentView === "drivers") {
     // shows constructors
     currentView = "constructors";
     showStandings(currentView);
