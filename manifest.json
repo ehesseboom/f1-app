@@ -1,6 +1,6 @@
 {
   "name": "F1 App",
-  "short_name": "App",
+  "short_name": "F1 App",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#1A262C",
