@@ -1,8 +1,7 @@
 {
   "name": "F1 App",
   "short_name": "F1App",
-  "start_url": "/index.html",
-  "scope": "/",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#152123",
   "theme_color": "#152123",
