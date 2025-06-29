@@ -1,0 +1,38 @@
+{
+  "name": "F1 App",
+  "short_name": "App",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#1A262C",
+  "theme_color": "#29373A",
+  "description": "A pixel art F1 app with times for the upcoming GP and season standings.",
+  "id": "/projects/f1-app/index.html",
+  "icons": [
+    {
+      "src": "assets/images/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/images/screenshot-mobile.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "F1 App Mobile View"
+    },
+    {
+      "src": "assets/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "F1 App Desktop View"
+    }
+  ]
+}
