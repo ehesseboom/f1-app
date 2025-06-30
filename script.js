@@ -20,7 +20,7 @@ async function getData() {
   try {
     const response = await fetch("https://f1api.dev/api/current/next");
     const data = await response.json();
-    // console.log(data);
+    console.log(data);
     const standingsResponse = await fetch(
       "https://f1api.dev/api/current/drivers-championship"
     );
@@ -76,9 +76,17 @@ async function getData() {
       lapRecordTime.textContent = dataLapRecordTime;
 
       const dataLapRecordDriver = data.race[0].circuit.fastestLapDriverId;
-      lapRecordDriver.textContent =
-        dataLapRecordDriver.charAt(0).toUpperCase() +
-        dataLapRecordDriver.slice(1);
+      if (dataLapRecordDriver.includes("_")) {
+        const lapRecordDriverLastName = dataLapRecordDriver.split("_")[1];
+        // console.log(lapRecordDriverLastName);
+        lapRecordDriver.textContent =
+          lapRecordDriverLastName.charAt(0).toUpperCase() +
+          lapRecordDriverLastName.slice(1);
+      } else {
+        lapRecordDriver.textContent =
+          dataLapRecordDriver.charAt(0).toUpperCase() +
+          dataLapRecordDriver.slice(1);
+      }
 
       const dataLapRecordYear = data.race[0].circuit.fastestLapYear;
       lapRecordYear.textContent = dataLapRecordYear;
