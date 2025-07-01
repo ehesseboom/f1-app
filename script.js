@@ -82,11 +82,13 @@ async function getData() {
         lapRecordDriver.textContent =
           lapRecordDriverLastName.charAt(0).toUpperCase() +
           lapRecordDriverLastName.slice(1);
-      } else {
-        lapRecordDriver.textContent =
-          dataLapRecordDriver.charAt(0).toUpperCase() +
-          dataLapRecordDriver.slice(1);
       }
+
+      // else {
+      //   lapRecordDriver.textContent =
+      //     dataLapRecordDriver.charAt(0).toUpperCase() +
+      //     dataLapRecordDriver.slice(1);
+      // }
 
       const dataLapRecordYear = data.race[0].circuit.fastestLapYear;
       lapRecordYear.textContent = dataLapRecordYear;
