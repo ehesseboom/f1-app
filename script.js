@@ -6,7 +6,15 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 
 const raceName = document.getElementById("race-name");
-const sessions = ["fp1", "fp2", "fp3", "sprQ", "sprint", "qualy", "race"];
+const sessions = [
+  "fp1",
+  "fp2",
+  "fp3",
+  "sprintQualy",
+  "sprintRace",
+  "qualy",
+  "race",
+];
 const circuitName = document.getElementById("circuit-name");
 const lapRecordTime = document.getElementById("lap-record-time");
 const lapRecordDriver = document.getElementById("lap-record-driver");
@@ -45,19 +53,19 @@ async function getData() {
 
     // Schedule date & time upcoming GP
     const schedule = data.race[0].schedule;
-    // console.log(schedule);
+    console.log(schedule);
 
     // Loop through all sessions and do something for each of them
     sessions.forEach((session) => {
       // Check if session has no data
-      if (!schedule[session]) {
+      if (!schedule[session].date) {
         document.getElementById(session).style.display = "none";
         return;
       }
 
       // CURRENT GP TIMES & DATES -------------------
       const sessionData = schedule[session];
-      // console.log(sessionData);
+      console.log(sessionData);
 
       const month = dayjs(sessionData.date).format("MMM");
       const day = dayjs(sessionData.date).format("DD");
@@ -82,13 +90,11 @@ async function getData() {
         lapRecordDriver.textContent =
           lapRecordDriverLastName.charAt(0).toUpperCase() +
           lapRecordDriverLastName.slice(1);
+      } else {
+        lapRecordDriver.textContent =
+          dataLapRecordDriver.charAt(0).toUpperCase() +
+          dataLapRecordDriver.slice(1);
       }
-
-      // else {
-      //   lapRecordDriver.textContent =
-      //     dataLapRecordDriver.charAt(0).toUpperCase() +
-      //     dataLapRecordDriver.slice(1);
-      // }
 
       const dataLapRecordYear = data.race[0].circuit.fastestLapYear;
       lapRecordYear.textContent = dataLapRecordYear;
