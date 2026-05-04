@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "dayjs": "^1.11.13",
+    "node": "^24.15.0",
+    "nvm": "^0.0.4",
     "pixelarticons": "^1.8.0"
   },
   "type": "module"
